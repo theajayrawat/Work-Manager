@@ -1,6 +1,5 @@
 "use client"
-function error( error,
-    reset) {
+function error( error, reset) {
   return (
     <div>Error !!!</div>
   )
