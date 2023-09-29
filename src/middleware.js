@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import  { NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export function middleware(request) {
@@ -8,7 +7,7 @@ export function middleware(request) {
    request.nextUrl.pathname==="/login" || 
    request.nextUrl.pathname=="/singup" 
 
-   if(request.nextUrl.pathname==="/api/login"){
+   if(request.nextUrl.pathname==="/api/login" || request.nextUrl.pathname==="/api/users"){
         return;
    }
     
@@ -19,7 +18,17 @@ export function middleware(request) {
    }
    else{
     if(!authToken){
+        if(request.nextUrl.pathname.startsWith("/api")){
+            return NextResponse.json({
+                message:"Access denied"
+            },{
+                status:401,
+            })
+        }
         return NextResponse.redirect(new URL("/login", request.url));
+    }
+    else{
+        //verify
     }
    }
 }

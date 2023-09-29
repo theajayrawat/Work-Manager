@@ -11,7 +11,7 @@ function AddTask() {
     title: "",
     content: "",
     status: "none",
-    userId: "6514037e4c23d0fc894af8de",
+    userId: "",
   });
 
   const handleAddTask = async (event) => {
@@ -21,7 +21,8 @@ function AddTask() {
       toast.success("Your Task is Added", {
         position: "top-center",
       });
-      resetForm();
+
+      resetForm()
 
     } catch (error) {
       toast.error("Your Task is Not Added", {
@@ -30,7 +31,7 @@ function AddTask() {
     }
   };
 
-  const resetForm=(event)=>{
+  const resetForm=()=>{
     event.preventDefault()
     setTask({
         title: "",
@@ -119,8 +120,8 @@ function AddTask() {
               <option value="none" disabled>
                 ---Select Status---
               </option>
-              <option value="Pending">Pending</option>
-              <option value="Completed">Completed</option>
+              <option value="pending">pending</option>
+              <option value="completed">completed</option>
             </select>
           </div>
           <div className="mt-4 flex justify-center">

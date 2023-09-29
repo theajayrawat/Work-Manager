@@ -1,4 +1,5 @@
 import React from 'react'
+import ShowTaskPage from './ShowTaskPage'
 
 export const metadata={
     title:"Show Task : Work Manager"
@@ -6,7 +7,7 @@ export const metadata={
 function ShowTask() {
   return (
     <div className="text-3xl">
-        Show Task
+        <ShowTaskPage/>
     </div>
   )
 }

@@ -33,7 +33,8 @@ export async function POST(request){
         //4.Send Response as cookie or Header
         const response=NextResponse.json({
             message:"Login success",
-            success:true
+            success:true,
+            user:user.name,
         })
 
         response.cookies.set("loginToken",token, {

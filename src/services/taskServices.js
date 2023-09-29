@@ -7,3 +7,11 @@ export async function addTask(task) {
 
     return result
 }
+
+export async function deleteTask(taskId) {
+  const result = await httpAxios
+    .delete(`/api/tasks/${taskId}`, taskId)
+    .then((response) => response.data);
+
+    return result
+}

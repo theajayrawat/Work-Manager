@@ -15,3 +15,27 @@ export async function login(LoginData){
 
   return result
 }
+
+export async function currentUser(){
+  const result = await httpAxios
+  .get("/api/current")
+  .then((response) => response.data);
+
+  return result
+}
+
+export async function logout(){
+  const result = await httpAxios
+  .post("/api/logout")
+  .then((response) => response.data);
+
+  return result
+}
+
+export async function getTasksOfUser(userId){
+  const result = await httpAxios
+  .get(`/api/users/${userId}/tasks`)
+  .then((response) => response.data);
+
+  return result
+}
